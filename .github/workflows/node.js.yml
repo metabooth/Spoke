@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Stop server
+        run: pm2 stop spoke_server
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Start server
+        run: pm2 start spoke_server
