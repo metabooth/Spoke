@@ -1,0 +1,38 @@
+name: spoke
+
+on:
+  push:
+    branches: [ developers/lonycell/master ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Stop Server (spoke)
+        run: |
+          pm2 stop spoke
+          pm2 delete spoke
+        continue-on-error: true
+    
+      - name: Check version
+        run: |
+          node -v
+          npm -v
+
+      - uses: actions/checkout@v3
+
+      - name: Install dependency
+        run: npm i
+      
+      - name: Register and start spoke to PM2
+        run: |
+          pm2 start "npm run prod" --name spoke
+
+      - name: Check PM2 status
+        run: pm2 status
