@@ -62,6 +62,7 @@ export const proxiedUrlFor = url => {
     return url;
   }
 
+  //FIXME; SOOSKIM ! - SKIP
   return `https://${configs.CORS_PROXY_SERVER}/${url}`;
 };
 
