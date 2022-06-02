@@ -79,7 +79,7 @@ Object.assign(process.env, {
   RETICULUM_SOCKET_SERVER: mainHost,
   CORS_PROXY_SERVER: `https://${mainHost}:8989`,
   NON_CORS_PROXY_DOMAINS: `${mainHost}, https://raw.githubusercontent.com, https://hubs-proxy.com`,
-  BASE_ASSETS_PATH: `/admin-origin/`,
+  BASE_ASSETS_PATH: `/spoke-origin/`,
   RETICULUM_SERVER: `${mainHost}`,
   POSTGREST_SERVER: ``,
   ITA_SERVER: ``,
