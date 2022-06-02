@@ -70,9 +70,21 @@ function createHTTPSConfig() {
   }
 }
 
-const mainHost = "hubs.local";
+const mainHost = "www.pet-mom.club";
 const host = process.env.HOST_IP || mainHost;
 const port = process.env.HOST_PORT || 9090;
+
+Object.assign(process.env, {
+  HOST: mainHost,
+  RETICULUM_SOCKET_SERVER: mainHost,
+  CORS_PROXY_SERVER: `https://${mainHost}:8989`,
+  NON_CORS_PROXY_DOMAINS: `${mainHost}, https://raw.githubusercontent.com, https://hubs-proxy.com`,
+  BASE_ASSETS_PATH: `/admin-origin/`,
+  RETICULUM_SERVER: `${mainHost}`,
+  POSTGREST_SERVER: ``,
+  ITA_SERVER: ``,
+  UPLOADS_HOST: `${mainHost}`
+});
 
 module.exports = env => {
   return {
