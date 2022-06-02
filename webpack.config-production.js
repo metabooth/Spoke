@@ -265,23 +265,36 @@ module.exports = env => {
         template: path.join(__dirname, "src", "index.html"),
         faviconPath: (process.env.BASE_ASSETS_PATH || "/") + "assets/images/favicon.ico"
       }),
-      new webpack.EnvironmentPlugin({
-        BUILD_VERSION: "0.8.6",
-        NODE_ENV: "production",
-        RETICULUM_SERVER: host,
-        THUMBNAIL_SERVER: "",
-        HUBS_SERVER: host,
-        CORS_PROXY_SERVER: null,
-        BASE_ASSETS_PATH: "",
-        NON_CORS_PROXY_DOMAINS: "",
-        ROUTER_BASE_PATH: "",
-        SENTRY_DSN: null,
-        GA_TRACKING_ID: null,
-        IS_MOZ: false,
-        GITHUB_ORG: "mozilla",
-        GITHUB_REPO: "spoke",
-        GITHUB_PUBLIC_TOKEN: "ghp_SAFEPB2zzes9TEpAOSx2McNjJLQ1GXLBES2FsfWU"
+      new webpack.DefinePlugin({
+        "process.env": JSON.stringify({
+          NODE_ENV: argv.mode,
+          BUILD_VERSION: process.env.BUILD_VERSION,
+          CONFIGURABLE_SERVICES: process.env.CONFIGURABLE_SERVICES,
+          ITA_SERVER: process.env.ITA_SERVER,
+          RETICULUM_SERVER: process.env.RETICULUM_SERVER,
+          CORS_PROXY_SERVER: process.env.CORS_PROXY_SERVER,
+          POSTGREST_SERVER: process.env.POSTGREST_SERVER,
+          UPLOADS_HOST: process.env.UPLOADS_HOST,
+          BASE_ASSETS_PATH: process.env.BASE_ASSETS_PATH
+        })
       })
+      // new webpack.EnvironmentPlugin({
+      //   BUILD_VERSION: "0.8.6",
+      //   NODE_ENV: "production",
+      //   RETICULUM_SERVER: host,
+      //   THUMBNAIL_SERVER: "",
+      //   HUBS_SERVER: host,
+      //   CORS_PROXY_SERVER: null,
+      //   BASE_ASSETS_PATH: "",
+      //   NON_CORS_PROXY_DOMAINS: "",
+      //   ROUTER_BASE_PATH: "",
+      //   SENTRY_DSN: null,
+      //   GA_TRACKING_ID: null,
+      //   IS_MOZ: false,
+      //   GITHUB_ORG: "mozilla",
+      //   GITHUB_REPO: "spoke",
+      //   GITHUB_PUBLIC_TOKEN: "ghp_SAFEPB2zzes9TEpAOSx2McNjJLQ1GXLBES2FsfWU"
+      // })
     ]
   };
 };
