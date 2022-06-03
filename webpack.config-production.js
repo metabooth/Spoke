@@ -85,7 +85,7 @@ Object.assign(process.env, {
   HUBS_SERVER: mainHost,
   POSTGREST_SERVER: ``,
   ITA_SERVER: ``,
-  UPLOADS_HOST: `${mainHost}`,
+  UPLOADS_HOST: `uploads-prod.reticulum.io`,
   FARSPARK_SERVER: "farspark.reticulum.io",
   IS_MOZ: "false"
 });
@@ -106,7 +106,7 @@ module.exports = env => {
       public: `${host}:${port}`,
       publicPath: process.env.BASE_ASSETS_PATH || "",
       useLocalIp: true,
-      allowedHosts: [host],
+      allowedHosts: [host, '*'],
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
