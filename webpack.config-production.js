@@ -77,7 +77,7 @@ const port = process.env.HOST_PORT || 9090;
 Object.assign(process.env, {
   HOST: mainHost,
   RETICULUM_SOCKET_SERVER: mainHost,
-  CORS_PROXY_SERVER: "",
+  CORS_PROXY_SERVER: ``,
   NON_CORS_PROXY_DOMAINS: `${mainHost}, ${mainHost}:4000, raw.githubusercontent.com, hubs-proxy.com, reticulum.io`,
   ROUTER_BASE_PATH: `/spoke`,
   BASE_ASSETS_PATH: `/spoke-origin/`,
@@ -85,7 +85,7 @@ Object.assign(process.env, {
   HUBS_SERVER: mainHost,
   POSTGREST_SERVER: ``,
   ITA_SERVER: ``,
-  UPLOADS_HOST: `uploads-prod.reticulum.io`,
+  UPLOADS_HOST: `${mainHost}`,
   FARSPARK_SERVER: "farspark.reticulum.io",
   IS_MOZ: "false"
 });
