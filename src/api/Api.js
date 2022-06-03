@@ -71,7 +71,7 @@ export const proxiedUrlFor = url => {
 };
 
 export const scaledThumbnailUrlFor = (url, width, height) => {
-  if (configs.RETICULUM_SERVER.includes("hubs.local") && url.includes("hubs.local")) {
+  if ((configs.RETICULUM_SERVER.includes("hubs.local") && url.includes("hubs.local")) || (configs.RETICULUM_SERVER.includes("pet-mom.club") && url.includes("pet-mom.club"))) {
     return url;
   }
 
