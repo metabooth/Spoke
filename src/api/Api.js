@@ -682,7 +682,7 @@ export default class Project extends EventEmitter {
   }
 
   getSceneUrl(sceneId) {
-    if (configs.HUBS_SERVER === "localhost:8080" || configs.HUBS_SERVER === "hubs.local:8080") {
+    if (configs.HUBS_SERVER === "localhost:8080" || configs.HUBS_SERVER === "hubs.local:8080" || configs.HUBS_SERVER === "www.pet-mom.club:8080" || configs.HUBS_SERVER === "www.pet-mom.club") {
       return `https://${configs.HUBS_SERVER}/scene.html?scene_id=${sceneId}`;
     } else {
       return `https://${configs.HUBS_SERVER}/scenes/${sceneId}`;
