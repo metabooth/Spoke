@@ -271,7 +271,8 @@ export default class FloorPlanNode extends EditorNodeMixin(FloorPlan) {
           agentMaxClimb: this.agentMaxClimb,
           agentMaxSlope: this.agentMaxSlope,
           regionMinSize: this.regionMinSize,
-          wasmUrl: new URL(recastWasmUrl, configs.BASE_ASSETS_PATH || window.location).href
+          //FIXME wasmUrl: new URL(recastWasmUrl, configs.BASE_ASSETS_PATH || window.location).href
+          wasmUrl: recastWasmUrl
         },
         signal
       );
