@@ -82,7 +82,7 @@ Object.assign(process.env, {
   ROUTER_BASE_PATH: `/spoke`,
   BASE_ASSETS_PATH: `/spoke-origin/`,
   RETICULUM_SERVER: mainHost,
-  HUBS_SERVER: `${mainHost}:8080`,
+  HUBS_SERVER: `${mainHost}`,
   POSTGREST_SERVER: ``,
   ITA_SERVER: ``,
   UPLOADS_HOST: `${mainHost}`,
