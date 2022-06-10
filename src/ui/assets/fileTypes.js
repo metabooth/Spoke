@@ -4,7 +4,7 @@ export const VideoFileTypes = [".mp4", "video/mp4"];
 
 export const ImageFileTypes = [".png", ".jpeg", ".jpg", ".gif", "image/png", "image/jpeg", "image/gif"];
 
-export const ModelFileTypes = [".glb", "model/gltf-binary"];
+export const ModelFileTypes = [".glb", "model/gltf-binary", ".fbx"]; //FIXME
 
 export const AllFileTypes = [...AudioFileTypes, ...VideoFileTypes, ...ImageFileTypes, ...ModelFileTypes];
 
